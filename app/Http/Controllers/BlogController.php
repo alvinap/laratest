@@ -19,7 +19,7 @@ class BlogController extends Controller
         $data = [];
 
         // Get Data
-        $blog = DB::table('blogs')->get();
+        $blog = DB::table('blog')->get();
 
         // Parsing to Array
         $data['blog'] = $blog;
@@ -56,13 +56,13 @@ class BlogController extends Controller
         if (!$id) {
             // Insert
             $post['created_at'] = $current_date;
-            DB::table('blogs')
+            DB::table('blog')
                 ->insert($post);
             $session_post = 'success';
             $session_message = 'Data was successfully created!.';
         } else {
             // Update
-            DB::table('blogs')
+            DB::table('blog')
                 ->where('id', $id)
                 ->update($post);
             $session_post = 'success';
@@ -94,7 +94,7 @@ class BlogController extends Controller
         // Process Query
         if ($id) {
             // Delete
-            DB::table('blogs')
+            DB::table('blog')
                 ->where('id', $id)
                 ->delete();
             $session_post = 'success';

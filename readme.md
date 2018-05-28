@@ -6,18 +6,16 @@ $ sudo -u postgres createuser laratest
 $ sudo -u postgres createdb laratest
 $ sudo -u postgres psql
 ## CREATE PASSWORD
-psql=# alter user laratest with encrypted password 'laratest';
+psql=# alter user laratest with encrypted password 'laratest'; 
 psql=# grant all privileges on database laratest to laratest ;
 
-## CREATE AUTH
-php artisan make:auth
 ## MIGRATION
-php artisan make:migration create_blog_table --create=blog
+php artisan make:migration create_blog_table --create=blog 
 php artisan migrate
 ## QUEUE
-php artisan queue:table
-php artisan make:job first
-php artisan make:job second
-php artisan make:controller SendMailController --resource
+php artisan queue:table 
+php artisan make:job first 
+php artisan make:job second 
+php artisan make:controller SendMailController --resource 
 ## FACTORY
-php artisan db:seed --class=BlogTableSeeder
+php artisan db:seed --class=BlogTableSeeder 
